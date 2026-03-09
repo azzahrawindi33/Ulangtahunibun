@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body style="background-image: url(https://images.unsplash.com/photo-1720789978500-89ffff904edf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmFjZ3JvdW5kJTIwcGlua3xlbnwwfHwwfHx8MA%3D%3D);"
+class="flex justify-center h-screen items-center">
+
+    <audio id="laguHBD" src="musik.hbd.mp3" loop></audio>
+
+    <div class="bg-white border px-10 py-8 border-4 border-gray-300 shadow-lg shadow-blue-300 rounded-xl text-center animate__animated animate__backInDown m-8 w-80" id="kartu">
+        <h1 class="text-3xl">Happy Birthday </h1>
+        <h1 class="text-4xl text-pink-500 font-bold animate__animated animate__pulse animate__infinite">Ibun & Ayah </h1>
+        <button class="p-2 bg-pink-600 text-white rounded mt-5 hover:bg-pink-900 transition ease-in w-full animate__animated animate__delay-1s animate__tada" onclick="ubahkartu()">klik disini</button>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+        confetti({
+            position: { x: 50, y: 50 },   
+            count: 100,         
+            size: 1,            
+            velocity: 200,      
+            fade: false         
+        });
+
+        let kartu = document.getElementById("kartu");
+        let lagu = document.getElementById("laguHBD");
+
+        function ubahkartu() {
+            
+            lagu.play();
+
+            kartu.innerHTML = `
+                <h1 class="font-semibold text-wrap animate__animated animate__zoomInDown">
+                "Selamat ulang tahun ayah & ibunn, cinta pertamaku! Semoga rezekinya semakin lancar, makin bahagia, selalu sehat, dipertemukan orang baik dimanapun kapanpun. Makan-makan ditunggu ya bunn yahh, selamat bertambah usia!"
+                </h1>
+                <h2 class="mt-3 animate__animated animate__fadeIn">- Dari : BUNGSU TERCANTIK -</h2>
+                <button class="p-2 bg-pink-600 text-white rounded mt-5 hover:bg-pink-900 transition ease-in w-full animate__animated animate__delay-1s animate__tada" onclick="refresh()">Tutup</button>
+            `;
+
+            
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function refresh(){
+            location.reload();
+        } 
+    </script>
+
+</body>
+</html>
